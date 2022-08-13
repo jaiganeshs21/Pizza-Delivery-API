@@ -53,7 +53,7 @@ class OrderDetailView(generics.GenericAPIView):
     @swagger_auto_schema(operation_summary="Retrieve an order by id")
 
     def get(self,request,order_id):
-        order=get_object_or_404(order,pk=order_id)
+        order=get_object_or_404(Order,pk=order_id)
 
         serializer=self.serializer_class(instance=order)
 
@@ -65,7 +65,7 @@ class OrderDetailView(generics.GenericAPIView):
     def put(self,request,order_id):
         data=request.data
 
-        order=get_object_or_404(order,pk=order_id)
+        order=get_object_or_404(Order,pk=order_id)
 
         serializer=self.serializer_class(data=data,instance=order)
 
