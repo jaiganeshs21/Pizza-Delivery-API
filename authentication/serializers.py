@@ -2,19 +2,19 @@ from .models import User
 from rest_framework import serializers,status
 from rest_framework.validators import ValidationError
 from django.contrib.auth.hashers import make_password
-from phonenumber_field.serializerfields import PhoneNumberField
+# from phonenumber_field.serializerfields import PhoneNumberField
 
 
 class UserCreationSerializer(serializers.ModelSerializer):
     username=serializers.CharField(max_length=40)
     email=serializers.EmailField(max_length=80)
-    phone_number=PhoneNumberField(allow_null=False,allow_blank=False)
+    # phone_number=PhoneNumberField(allow_null=False,allow_blank=False)
     password=serializers.CharField(allow_blank=False,write_only=True)
 
 
     class Meta:
         model=User
-        fields=['id','username', 'email', 'phone_number','password']
+        fields=['id','username', 'email','password']
 
     def validate(self,attrs):
         username_exists=User.objects.filter(username=attrs['username']).exists()

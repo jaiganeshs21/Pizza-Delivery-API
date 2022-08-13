@@ -15,7 +15,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG',cast=bool)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -101,9 +101,9 @@ WSGI_APPLICATION = 'pizza.wsgi.application'
 
 DATABASES = {}
 
+# print('DEbug value', DEBUG)
 if DEBUG:
-
-    DATABASES['default']:{
+    DATABASES['default'] = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
