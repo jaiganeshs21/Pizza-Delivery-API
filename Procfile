@@ -1,2 +1,2 @@
-release: python3 PIZZA_DELIVERY/manage.py migrate
-web: python3 PIZZA_DELIVERY/manage.py runserver
+release: python3 manage.py migrate
+web: python3 manage.py runserver
